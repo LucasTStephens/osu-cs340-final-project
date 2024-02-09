@@ -36,7 +36,7 @@ CREATE OR REPLACE TABLE CustomerSales (
     customerEmail varchar(255) NOT NULL,
     timeIn datetime NOT NULL,
     timeOut datetime,
-    PRIMARY KEY (customerID),
+    PRIMARY KEY (saleID),
     FOREIGN KEY (systemID) REFERENCES GameSystems(systemID),
     FOREIGN KEY (customerEmail) REFERENCES CustomerAccounts(customerEmail)
 );
@@ -58,19 +58,17 @@ VALUES ('jonbovi@aol.com', 'Jon', 'Bovi', '1989-01-01'),
 ('rssbob@aol.com', 'Shaun', 'Mitchell', '1976-04-04'),
 ('poohwin@aol.com', 'Nettie', 'Shannon', '2000-02-28');
 
-INSERT INTO CustomerSales (systemID, timeIn, timeOut)
-VALUES (),
-(),
-(),
-(),
-();
+INSERT INTO CustomerSales (systemID, customerEmail, timeIn, timeOut)
+VALUES (1, 'jonbovi@aol.com', '2024-02-08 11:00:00', NULL),
+(2, 'cloud99@aol.com', '2024-02-08 15:00:00', '2024-02-08 19:00:00'),
+(1, 'cloud99@aol.com', '2024-02-07 12:00:00', '2024-02-07 13:00:00');
 
 INSERT INTO GameSystems (loungeID, inUse, consoleType)
-VALUES (),
-(),
-(),
-(),
-();
+VALUES (1, 1, 'PS5'),
+(2, 1, 'XBOX'),
+(1, 0, 'PS5'),
+(2, 0, 'XBOX'),
+(3, 0, 'PC');
 
 INSERT INTO Employees (statusIn, position, hourlyWage)
 VALUES (1, 'Manager', 25.50),
@@ -82,3 +80,9 @@ VALUES (5, 2),
 (10, 2),
 (8, 1),
 (12, 0);
+
+INSERT INTO Lounges_Employees (loungeID, employeeID, dateinfo)
+VALUES (1, 1, '2024-02-08'),
+(1, 1, '2024-02-08'),
+(3, 2, '2024-02-08'),
+(4, 3, '2024-02-08');
