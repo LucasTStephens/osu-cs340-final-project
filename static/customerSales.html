@@ -15,11 +15,11 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>SaleID</th>
-                <th>SystemID</th>
-                <th>Customer Email</th>
-                <th>Time In</th>
-                <th>Time Out</th>
+                <th>saleID</th>
+                <th>systemID</th>
+                <th>customerEmail</th>
+                <th>timeIn</th>
+                <th>timeOut</th>
             </tr>
             <tr>
                 <td><button>Edit</button></td>
@@ -40,5 +40,49 @@
                 <td>2/8/24 19:00</td>
             </tr>
         </table>
+
+        <div>Add customer sale</div>
+        <form>
+            <label for="systemID">systemID</label>
+            <input name="systemID">
+
+            <label for="email">customer email</label>
+            <input name="email">
+
+            <label for="timein">timein</label>
+            <input name="timein">
+
+            <label for="timeout">timeout</label>
+            <input name="timeout">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update customer sale</div>
+        <form>
+            <label for="systemID">systemID</label>
+            <input name="systemID">
+
+            <label for="email">customer email</label>
+            <input name="email">
+
+            <label for="timein">timein</label>
+            <input name="timein">
+
+            <label for="timeout">timeout</label>
+            <input name="timeout">
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete customer sale</div>
+        <form>
+            <div>Warning: You are about to delete a sale with the saleID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>

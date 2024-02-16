@@ -15,10 +15,10 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Date of Birth</th>
+                <th>email</th>
+                <th>fname</th>
+                <th>lname</th>
+                <th>DOB</th>
             </tr>
             <tr>
                 <td><button>Edit</button></td>
@@ -37,5 +37,49 @@
                 <td>12/5/85</td>
             </tr>
         </table>
+
+        <div>Add customer account</div>
+        <form>
+            <label for="email">email</label>
+            <input name="email">
+
+            <label for="first-name">first name</label>
+            <input name="first-name">
+
+            <label for="last-name">last name</label>
+            <input name="last-name">
+
+            <label for="date-of-birth">date of birth</label>
+            <input name="date-of-birth">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update customer account</div>
+        <form>
+            <label for="email">email</label>
+            <input name="email">
+
+            <label for="first-name">first name</label>
+            <input name="first-name">
+
+            <label for="last-name">last name</label>
+            <input name="last-name">
+
+            <label for="date-of-birth">date of birth</label>
+            <input name="date-of-birth">
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete customer account</div>
+        <form>
+            <div>Warning: You are about to delete an account with the email: jonbovi@aol.com</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>

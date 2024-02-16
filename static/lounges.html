@@ -16,8 +16,8 @@
                 <th></th>
                 <th></th>
                 <th>LoungeID</th>
-                <th>Lounge Limit</th>
-                <th>Active Consoles</th>
+                <th>loungeLimit</th>
+                <th>activeConsoles</th>
             </tr>
             <tr>
                 <td><button>Edit</button></td>
@@ -34,5 +34,37 @@
                 <td>2</td>
             </tr>
         </table>
+
+        <div>Add lounge</div>
+        <form>
+            <label for="loungeLimit">loungeLimit</label>
+            <input name="loungeLimit">
+
+            <label for="activeConsoles">activeConsoles</label>
+            <input name="activeConsoles">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update lounge</div>
+        <form>
+            <label for="loungeLimit">loungeLimit</label>
+            <input name="loungeLimit">
+
+            <label for="activeConsoles">activeConsoles</label>
+            <input name="activeConsoles">
+            
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete lounge</div>
+        <form>
+            <div>Warning: You are about to delete a lounge with the loungeID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>

@@ -16,9 +16,9 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>SystemID</th>
+                <th>systemID</th>
                 <th>loungeID</th>
-                <th>In Use</th>
+                <th>inUse</th>
                 <th>systemType</th>
             </tr>
             <tr>
@@ -38,5 +38,43 @@
                 <td>2</td>
             </tr>
         </table>
+
+        <div>Add game system</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <input name="loungeID">
+
+            <label for="inUse">inUse</label>
+            <input name="inUse">
+
+            <label for="systemType">systemType</label>
+            <input name="systemType">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update game system</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <input name="loungeID">
+
+            <label for="inUse">inUse</label>
+            <input name="inUse">
+
+            <label for="systemType">systemType</label>
+            <input name="systemType">
+            
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete game system</div>
+        <form>
+            <div>Warning: You are about to delete a game system with the systemID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>

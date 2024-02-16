@@ -16,10 +16,10 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>Rental InvoiceID</th>
-                <th>LoungeID</th>
+                <th>rentalInvoiceID</th>
+                <th>loungeID</th>
                 <th>employeeID</th>
-                <th>Date Info</th>
+                <th>dateInfo</th>
             </tr>
             <tr>
                 <td><button>Edit</button></td>
@@ -38,5 +38,43 @@
                 <td>2024-02-08</td>
             </tr>
         </table>
+
+        <div>Add lounge_employee</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <input name="loungeID">
+
+            <label for="employeeID">employeeID</label>
+            <input name="employeeID">
+
+            <label for="dateInfo">dateInfo</label>
+            <input name="dateInfo">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update lounge_employee</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <input name="loungeID">
+
+            <label for="employeeID">employeeID</label>
+            <input name="employeeID">
+
+            <label for="dateInfo">dateInfo</label>
+            <input name="dateInfo">
+            
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete lounge_employee</div>
+        <form>
+            <div>Warning: You are about to delete a lounge_employee with the rentalInvoiceID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>

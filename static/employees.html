@@ -15,10 +15,10 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>EmployeeID</th>
-                <th>Status In</th>
-                <th>Position</th>
-                <th>Hourly Wage</th>
+                <th>employeeID</th>
+                <th>statusIn</th>
+                <th>position</th>
+                <th>hourlyWage</th>
             </tr>
             <tr>
                 <td><button>Edit</button></td>
@@ -37,5 +37,43 @@
                 <td>20.00</td>
             </tr>
         </table>
+
+        <div>Add employee</div>
+        <form>
+            <label for="statusin">statusin</label>
+            <input name="statusin">
+
+            <label for="position">position</label>
+            <input name="position">
+
+            <label for="hourlywage">hourlywage</label>
+            <input name="hourlywage">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update employee</div>
+        <form>
+            <label for="statusin">statusin</label>
+            <input name="statusin">
+
+            <label for="position">position</label>
+            <input name="position">
+
+            <label for="hourlywage">hourlywage</label>
+            <input name="hourlywage">
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete employee</div>
+        <form>
+            <div>Warning: You are about to delete an employee with the EmployeeID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
     </body>
 </html>
