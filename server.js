@@ -6,6 +6,6 @@ var app = express()
 app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.json())
 
-app.listen(3333, () => {
-    console.log(`Server is running port 3333`);
+app.listen(3233, () => {
+    console.log(`Server is running port 3233`);
 });
