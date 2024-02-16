@@ -23,7 +23,7 @@ SELECT salesID, systemID, customerEmail, timeIn, timeOut FROM CustomerAccounts;
 
 -- CREATE query for CustomerSales Table
 INSERT INTO CustomerSales(systemID, customerEmail, timeIn, timeOut)  
-VALUES (:systemID, :customerEmail, :timeIn, :timeOut);
+VALUES (:systemID_from_dropdown, :customerEmail_from_dropdown, :timeIn, :timeOut);
 
 -- DELETE query from CustomerSales Table
 DELETE FROM CustomerSales WHERE saleID = :saleID;
@@ -31,7 +31,7 @@ DELETE FROM CustomerSales WHERE saleID = :saleID;
 -- UPDATE query from CustomerSales Table
 SELECT saleID, systemID, customerEmail, timeIn, timeOut FROM CustomerAccounts WHERE saleID = :saleID;
 UPDATE customerSales 
-SET systemID = :systemIDInput, customerEmail = :customerEmailInput, timeIn = :timeInInput, timeOut = timeOutInput WHERE saleID = :saleIDInput;
+SET systemID = :systemID_from_dropdown, customerEmail = :customerEmail_from_dropdown, timeIn = :timeInInput, timeOut = timeOutInput WHERE saleID = :saleIDInput;
 
 
 -- READ query for Consoles Table
@@ -55,7 +55,7 @@ SELECT systemID, loungeID, inUse, systemType FROM GameSystems;
 
 -- CREATE query for GameSystems Table
 INSERT INTO GameSystems(loungeID, inUse, systemType)  
-VALUES (:loungeID, :inUse, :systemType);
+VALUES (:loungeID_from_dropdown, :inUse, :systemType_from_dropdown);
 
 -- DELETE query from GameSystems Table
 DELETE FROM GameSystems WHERE systemID = :systemIDInput;
@@ -63,7 +63,7 @@ DELETE FROM GameSystems WHERE systemID = :systemIDInput;
 -- UPDATE query from GameSystems Table
 SELECT systemID, loungeID, inUse, systemType FROM GameSystems WHERE systemID = :systemID;
 UPDATE GameSystems
-SET loungeID = :loungeIDInput, inUse = :inUseInput, systemType = :systemTypeInput WHERE systemID = :systemIDInput;
+SET loungeID = :loungeID_from_dropdown, inUse = :inUseInput, systemType = :systemType_from_dropdown WHERE systemID = :systemIDInput;
 
 
 -- READ query for Lounges Table
@@ -87,7 +87,7 @@ SELECT rentalInvoiceID, loungeID, employeeID, dateinfo FROM LoungesEmployees;
 
 -- CREATE query for LoungesEmployees Table
 INSERT INTO LoungesEmployees(loungeID, employeeID, dateinfo)  
-VALUES (:loungeID, :employeeID, dateinfo);
+VALUES (:loungeID_from_dropdown, :employeeID_from_dropdown, dateinfo);
 
 -- DELETE query from LoungesEmployees Table
 DELETE FROM LoungesEmployees WHERE rentalInvoiceID = :rentalInvoiceIDInput;
@@ -95,7 +95,7 @@ DELETE FROM LoungesEmployees WHERE rentalInvoiceID = :rentalInvoiceIDInput;
 -- UPDATE query from LoungesEmployees Table
 SELECT rentalInvoiceID, loungeID, employeeID, dateinfo FROM LoungesEmployees WHERE rentalInvoiceID = :rentalInvoiceID;
 UPDATE LoungesEmployees
-SET loungeID = :loungeIDInput, employeeID = :employeeIDInput, dateinfo = :dateinfoInput WHERE rentalInvoiceID = :rentalInvoiceIDInput;
+SET loungeID = :loungeID_from_dropdown, employeeID = :employee_from_dropdown, dateinfo = :dateinfoInput WHERE rentalInvoiceID = :rentalInvoiceIDInput;
 
 
 -- READ query for Employees Table
