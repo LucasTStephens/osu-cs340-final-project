@@ -3,7 +3,7 @@ SET AUTOCOMMIT = 0;
 
 
 -- READ query for CustomerAccounts Table
-SELECT firstName, lastName, customerEmail, customerDOB FROM CustomerAccounts;
+SELECT firstName as "First Name", lastName as "Last Name", customerEmail as Email, customerDOB as "Date of Birth" FROM CustomerAccounts;
 
 -- CREATE query for CustomerAccounts Table
 INSERT INTO CustomerAccount( customerEmail, firstName, lastName,customer DOB)  
