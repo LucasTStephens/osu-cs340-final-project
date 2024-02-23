@@ -19,7 +19,7 @@ SET fname = :fnameInput, lname= :lnameInput, customerEmail = :customerEmailInput
 
 
 -- READ query for CustomerSales Table
-SELECT salesID, systemID, customerEmail, timeIn, timeOut FROM CustomerAccounts;
+SELECT salesID as "Sale Order #", systemID as "Game System #", customerEmail as "Customer Email", timeIn as "Checked In", timeOut as "Checked Out" FROM CustomerAccounts;
 
 -- CREATE query for CustomerSales Table
 INSERT INTO CustomerSales(systemID, customerEmail, timeIn, timeOut)  
@@ -35,7 +35,7 @@ SET systemID = :systemID_from_dropdown, customerEmail = :customerEmail_from_drop
 
 
 -- READ query for Consoles Table
-SELECT consoleID, consoleType FROM Consoles;
+SELECT consoleID as "Game System #", consoleType as "Game Console Type" FROM Consoles;
 
 -- CREATE query for Consoles Table
 INSERT INTO Consoles(consoleType)  
@@ -51,7 +51,7 @@ SET consoleType =:consoleTypeInput WHERE consoleID = :consoleIDInput;
 
 
 -- READ query for GameSystems Table
-SELECT systemID, loungeID, inUse, systemType FROM GameSystems;
+SELECT systemID as "Game System #", loungeID as "Lounge #", inUse as "Rented?", systemType as "Game Console Type" FROM GameSystems;
 
 -- CREATE query for GameSystems Table
 INSERT INTO GameSystems(loungeID, inUse, systemType)  
@@ -67,7 +67,7 @@ SET loungeID = :loungeID_from_dropdown, inUse = :inUseInput, systemType = :syste
 
 
 -- READ query for Lounges Table
-SELECT loungeID, loungeLimit, activeConsoles FROM Lounges;
+SELECT loungeID as "Lounge #" , loungeLimit as "Max Capacity", activeConsoles "Active Players" FROM Lounges;
 
 -- CREATE query for Lounges Table
 INSERT INTO Lounges(loungeLimit, activeConsoles)  
@@ -83,7 +83,7 @@ SET loungeLimit = :loungeLimitInput, activeConsoles = :activeConsolesInput WHERE
 
 
 -- READ query for LoungesEmployees Table
-SELECT rentalInvoiceID, loungeID, employeeID, dateinfo FROM LoungesEmployees;
+SELECT rentalInvoiceID as "Rental Invoice #", loungeID as "Lounge #", employeeID as "Employee #", dateinfo as "Date" FROM LoungesEmployees;
 
 -- CREATE query for LoungesEmployees Table
 INSERT INTO LoungesEmployees(loungeID, employeeID, dateinfo)  
@@ -99,7 +99,7 @@ SET loungeID = :loungeID_from_dropdown, employeeID = :employee_from_dropdown, da
 
 
 -- READ query for Employees Table
-SELECT employeeID, statusIn, position, hourlyWage FROM Employees;
+SELECT employeeID as "Employee #", statusIn as "Clocked In", position as "Title", hourlyWage as "Wage ($/hr)" FROM Employees;
 
 -- CREATE query for Employees Table
 INSERT INTO Employees(statusIn, position, hourlyWage)  
