@@ -9,6 +9,8 @@ app.use(express.urlencoded({extended: 'false'}))
 app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.json())
 
+dotenv.config({ path: './.env'})
+
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -25,16 +27,16 @@ db.connect((error) => {
 })
 
 // test case for createing new customer account, values not correct
-app.post("/customerAccounts/create", (req, res) => {
-    const data = req.body["form-name"];
-
-    db.query('INSERT INTO customerAccounts (attribute1, attribute2) VALUES (?, data2)', [data], async (error, ress) => {
+app.get("/customerAccounts", (req, res) => {
+    db.query('SELECT firstName, lastName, customerEmail, customerDOB FROM CustomerAccounts', async (error, ress) => {
         if(error){
             console.log(error)
         }
         if( ress.length > 0 ) {
+            console.log(ress.data)
             return res.render('customerAccounts', {
-                message: 'New account added'
+                
+                message: 'Account info retrieved'
             })
         }
     })
