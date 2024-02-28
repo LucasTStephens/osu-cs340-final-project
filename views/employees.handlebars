@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Employees</title>
+        <link rel="stylesheet", href="./style.css">
+        <script src="./index.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <h1>Employees</h1>
+        <a href="./index">Go Back</a>
+
+        <div></div>
+        <button>New</button>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>employeeID</th>
+                <th>statusIn</th>
+                <th>position</th>
+                <th>hourlyWage</th>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>1</td>
+                <td>1</td>
+                <td>Manager</td>
+                <td>25.50</td>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>2</td>
+                <td>1</td>
+                <td>Lounge Worker</td>
+                <td>20.00</td>
+            </tr>
+        </table>
+
+        <div>Add employee</div>
+        <form>
+            <label for="statusin">statusin</label>
+            <input name="statusin">
+
+            <label for="position">position</label>
+            <input name="position">
+
+            <label for="hourlywage">hourlywage</label>
+            <input name="hourlywage">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update employee</div>
+        <form>
+            <label for="statusin">statusin</label>
+            <input name="statusin">
+
+            <label for="position">position</label>
+            <input name="position">
+
+            <label for="hourlywage">hourlywage</label>
+            <input name="hourlywage">
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete employee</div>
+        <form>
+            <div>Warning: You are about to delete an employee with the EmployeeID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
+    </body>
+</html>

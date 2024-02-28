@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CustomerSales</title>
+        <link rel="stylesheet", href="./style.css">
+        <script src="./index.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <h1>Customer Sales</h1>
+        <a href="./index">Go Back</a>
+
+        <div></div>
+        <button>New</button>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>saleID</th>
+                <th>systemID</th>
+                <th>customerEmail</th>
+                <th>timeIn</th>
+                <th>timeOut</th>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>1</td>
+                <td>1</td>
+                <td>jonbovi@aol.com</td>
+                <td>2/8/24 11:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>2</td>
+                <td>2</td>
+                <td>cloud99@aol.com</td>
+                <td>2/8/24 15:00</td>
+                <td>2/8/24 19:00</td>
+            </tr>
+        </table>
+
+        <div>Add customer sale</div>
+        <form>
+            <label for="systemID">systemID</label>
+            <select name="systemID"></select>
+
+            <label for="email">customer email</label>
+            <select name="email"></select>
+
+            <label for="timein">timein</label>
+            <input name="timein">
+
+            <label for="timeout">timeout</label>
+            <input name="timeout">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update customer sale</div>
+        <form>
+            <label for="systemID">systemID</label>
+            <select name="systemID"></select>
+
+            <label for="email">customer email</label>
+            <select name="email"></select>
+
+            <label for="timein">timein</label>
+            <input name="timein">
+
+            <label for="timeout">timeout</label>
+            <input name="timeout">
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete customer sale</div>
+        <form>
+            <div>Warning: You are about to delete a sale with the saleID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
+    </body>
+</html>

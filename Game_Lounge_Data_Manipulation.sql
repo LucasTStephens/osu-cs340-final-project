@@ -19,7 +19,7 @@ SET fname = :fnameInput, lname= :lnameInput, customerEmail = :customerEmailInput
 
 
 -- READ query for CustomerSales Table
-SELECT salesID as "Sale Order #", systemID as "Game System #", customerEmail as "Customer Email", timeIn as "Checked In", timeOut as "Checked Out" FROM CustomerAccounts;
+SELECT salesID as "Sale Order #", systemID as "Game System #", customerEmail as "Customer Email", timeIn as "Checked In", timeOut as "Checked Out" FROM CustomerSales;
 
 -- CREATE query for CustomerSales Table
 INSERT INTO CustomerSales(systemID, customerEmail, timeIn, timeOut)  
@@ -29,7 +29,7 @@ VALUES (:systemID_from_dropdown, :customerEmail_from_dropdown, :timeIn, :timeOut
 DELETE FROM CustomerSales WHERE saleID = :saleID;
 
 -- UPDATE query from CustomerSales Table
-SELECT saleID, systemID, customerEmail, timeIn, timeOut FROM CustomerAccounts WHERE saleID = :saleID;
+SELECT saleID, systemID, customerEmail, timeIn, timeOut FROM CustomerSales WHERE saleID = :saleID;
 UPDATE customerSales 
 SET systemID = :systemID_from_dropdown, customerEmail = :customerEmail_from_dropdown, timeIn = :timeInInput, timeOut = timeOutInput WHERE saleID = :saleIDInput;
 

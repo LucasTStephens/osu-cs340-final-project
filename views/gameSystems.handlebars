@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GameSystems</title>
+        <link rel="stylesheet", href="./style.css">
+        <script src="./index.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <h1>Game Systems</h1>
+        <a href="./index">Go Back</a>
+
+
+        <div></div>
+        <button>New</button>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>systemID</th>
+                <th>loungeID</th>
+                <th>inUse</th>
+                <th>systemType</th>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>1</td>
+                <td>1</td>
+                <td>Yes</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>2</td>
+                <td>2</td>
+                <td>yes</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <div>Add game system</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <select name="loungeID"></select>
+
+            <label for="inUse">inUse</label>
+            <input name="inUse">
+
+            <label for="systemType">systemType</label>
+            <select name="systemType"></select>
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update game system</div>
+        <form>
+            <label for="loungeID">loungeID</label>
+            <select name="loungeID"></select>
+
+            <label for="inUse">inUse</label>
+            <input name="inUse">
+
+            <label for="systemType">systemType</label>
+            <select name="systemType"></select>
+
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete game system</div>
+        <form>
+            <div>Warning: You are about to delete a game system with the systemID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lounges</title>
+        <link rel="stylesheet", href="./style.css">
+        <script src="./index.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <h1>Lounges</h1>
+        <a href="./index">Go Back</a>
+
+        <div></div>
+        <button>New</button>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>LoungeID</th>
+                <th>loungeLimit</th>
+                <th>activeConsoles</th>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>1</td>
+                <td>5</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+                <td>2</td>
+                <td>10</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <div>Add lounge</div>
+        <form>
+            <label for="loungeLimit">loungeLimit</label>
+            <input name="loungeLimit">
+
+            <label for="activeConsoles">activeConsoles</label>
+            <input name="activeConsoles">
+
+            <button type="submit">Add</button>
+            <button type="reset">Cancel</button>
+        </form>
+        
+
+        <div>Update lounge</div>
+        <form>
+            <label for="loungeLimit">loungeLimit</label>
+            <input name="loungeLimit">
+
+            <label for="activeConsoles">activeConsoles</label>
+            <input name="activeConsoles">
+            
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </form>
+
+        <div>Delete lounge</div>
+        <form>
+            <div>Warning: You are about to delete a lounge with the loungeID: 1</div>
+            <button type="submit">Delete</button>
+            <button type="reset">Cancel</button>
+        </form>
+    </body>
+</html>
