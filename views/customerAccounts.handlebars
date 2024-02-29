@@ -40,7 +40,7 @@
         </table>
 
         <div>Add customer account</div>
-        <form>
+        <form action="/customerAccounts/create" method="POST">
             <label for="email">email</label>
             <input name="email">
 
@@ -59,7 +59,7 @@
         
 
         <div>Update customer account</div>
-        <form>
+        <form action="/customerAccounts/update" method="POST">
             <label for="email">email</label>
             <input name="email">
 
@@ -77,8 +77,10 @@
         </form>
 
         <div>Delete customer account</div>
-        <form>
+        <form action="/customerAccounts/delete" method="POST">
             <div>Warning: You are about to delete an account with the email: jonbovi@aol.com</div>
+            <label for="email">Please enter the email to confirm: </label>
+            <input name="email">
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
