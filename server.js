@@ -48,8 +48,9 @@ app.get("/customerAccounts", (req, res) => {
             console.log(error)
         }
         if( ress.length > 0 ) {
+            console.log(ress)
             return res.render('customerAccounts', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }

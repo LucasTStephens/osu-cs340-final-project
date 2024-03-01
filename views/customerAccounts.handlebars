@@ -21,22 +21,16 @@
                 <th>last name</th>
                 <th>DOB</th>
             </tr>
+            {{#each tableData}}
             <tr>
                 <td><button>Edit</button></td>
                 <td><button>Delete</button></td>
-                <td>jonbovi@aol.com</td>
-                <td>Jon</td>
-                <td>Bovi</td>
-                <td>1/1/89</td>
+                <td>{{"Email"}}</td>
+                <td>{{"First Name"}}</td>
+                <td>{{"Last Name"}}</td>
+                <td>{{"Date of Birth"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>cloud99@aol.com</td>
-                <td>Darcy</td>
-                <td>Wiggins</td>
-                <td>12/5/85</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add customer account</div>
