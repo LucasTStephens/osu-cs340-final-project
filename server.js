@@ -229,6 +229,47 @@ app.get("/employees", (req, res) => {
     })
 });
 
+app.post("/employees/create", (req, res) => {
+    const statusin = req.body['statusin'];
+    const position = req.body['position'];
+    const hourlywage = req.body['hourlywage'];
+    db.query('INSERT INTO Employees(statusIn, position, hourlyWage) VALUES (?, ?, ?)', [statusin, position, hourlywage], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/employees');
+        }
+    })
+});
+
+app.post("/employees/update", (req, res) => {
+    const employeeID = req.body['EmployeeID'];
+    const statusin = req.body['statusin'];
+    const position = req.body['position'];
+    const hourlywage = req.body['hourlywage'];
+    db.query('UPDATE Employees SET statusIn = ?, position = ?, hourlyWage = ? WHERE employeeID = ?', [statusin, position, hourlywage, employeeID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/employees');
+        }
+    })
+});
+
+app.post("/employees/delete", (req, res) => {
+    const employeeID = req.body['EmployeeID'];
+    db.query('DELETE FROM Employees WHERE employeeID = ?', [employeeID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/employees');
+        }
+    })
+});
+
 // GAMESYSTEMS
 app.get("/gameSystems", (req, res) => {
     db.query('SELECT systemID as "Game System #", loungeID as "Lounge #", inUse as "Rented?", systemType as "Game Console Type" FROM GameSystems', async (error, ress) => {
@@ -241,6 +282,47 @@ app.get("/gameSystems", (req, res) => {
                 tableData: ress,
                 message: 'Account info retrieved'
             })
+        }
+    })
+});
+
+app.post("/gamesystems/create", (req, res) => {
+    const loungeID = req.body['loungeID'];
+    const inUse = req.body['inUse'];
+    const systemType = req.body['systemType'];
+    db.query('INSERT INTO GameSystems(loungeID, inUse, systemType) VALUES (?, ?, ?)', [loungeID, inUse, systemType], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/gamesystems');
+        }
+    })
+});
+
+app.post("/gamesystems/update", (req, res) => {
+    const systemID = req.body['systemID'];
+    const loungeID = req.body['loungeID'];
+    const inUse = req.body['inUse'];
+    const systemType = req.body['systemType'];
+    db.query('UPDATE GameSystems SET loungeID = ?, inUse = ?, systemType = ? WHERE systemID = ?', [loungeID, inUse, systemType, systemID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/gamesystems');
+        }
+    })
+});
+
+app.post("/gamesystems/delete", (req, res) => {
+    const systemID = req.body['systemID'];
+    db.query('DELETE FROM GameSystems WHERE systemID = ?', [systemID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/gamesystems');
         }
     })
 });
