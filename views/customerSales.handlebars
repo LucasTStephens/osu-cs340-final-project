@@ -72,7 +72,8 @@
 
         <div>Delete customer sale</div>
         <form action="/customerSales/delete" method="POST">
-            <div>Warning: You are about to delete a sale with the saleID: 1</div>
+            <label for="saleID">Please select the saleID of the sale you wish to delete:</label>
+            <select name="saleID"></select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>

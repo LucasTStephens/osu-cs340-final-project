@@ -65,7 +65,8 @@
 
         <div>Delete lounge_employee</div>
         <form action="/Lounges_Employees/delete" method="POST">
-            <div>Warning: You are about to delete a lounge_employee with the rentalInvoiceID: 1</div>
+            <label for="rentalInvoiceID">Please select the rentalInvoiceID of the rental you would like to delete: </label>
+            <select name="rentalInvoiceID"></select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>

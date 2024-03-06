@@ -64,7 +64,8 @@
 
         <div>Delete employee</div>
         <form action="/employees/delete" method="POST">
-            <div>Warning: You are about to delete an employee with the EmployeeID: 1</div>
+            <label for="employeeID">Please select the employeeID of the employee you wish to delete: </label>
+            <select name="employeeID"></select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>

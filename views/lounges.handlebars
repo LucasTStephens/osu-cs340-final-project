@@ -56,7 +56,8 @@
 
         <div>Delete lounge</div>
         <form action="/Lounges/delete" method="POST">
-            <div>Warning: You are about to delete a lounge with the loungeID: 1</div>
+            <label for="loungeID">Please select the loungeID of the lounge you would like to delete: </label>
+            <select name="loungeID"></select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>

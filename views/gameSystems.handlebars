@@ -65,7 +65,8 @@
 
         <div>Delete game system</div>
         <form action="/gameSystems/delete" method="POST">
-            <div>Warning: You are about to delete a game system with the systemID: 1</div>
+            <label for="systemID">Please select the systemID of the gamesystem you wish to delete: </label>
+            <select name="systemID"></select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
