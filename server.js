@@ -343,6 +343,47 @@ app.get("/Lounges_Employees", (req, res) => {
     })
 });
 
+app.post("/Lounges_Employees/create", (req, res) => {
+    const loungeID = req.body['loungeID'];
+    const employeeID = req.body['employeeID'];
+    const dateinfo = req.body['dateinfo'];
+    db.query('INSERT INTO LoungesEmployees(loungeID, employeeID, dateinfo) VALUES (?, ?, ?)', [loungeID, employeeID, dateinfo], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/Lounges_Employees');
+        }
+    })
+});
+
+app.post("/Lounges_Employees/update", (req, res) => {
+    const rentalInvoiceID = req.body['rentalInvoiceID'];
+    const loungeID = req.body['loungeID'];
+    const employeeID = req.body['employeeID'];
+    const dateinfo = req.body['dateinfo'];
+    db.query('UPDATE LoungesEmployees SET loungeID = ?, employeeID = ?, dateinfo = ? WHERE rentalInvoiceID = ?', [loungeID, employeeID, dateinfo, rentalInvoiceID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/Lounges_Employees');
+        }
+    })
+});
+
+app.post("/Lounges_Employees/delete", (req, res) => {
+    const rentalInvoiceID = req.body['rentalInvoiceID'];
+    db.query('DELETE FROM LoungesEmployees WHERE rentalInvoiceID = ?', [rentalInvoiceID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/Lounges_Employees');
+        }
+    })
+});
+
 // LOUNGES
 app.get("/lounges", (req, res) => {
     db.query('SELECT loungeID as "Lounge #" , loungeLimit as "Max Capacity", activeConsoles "Active Players" FROM Lounges', async (error, ress) => {
@@ -359,7 +400,44 @@ app.get("/lounges", (req, res) => {
     })
 });
 
+app.post("/lounges/create", (req, res) => {
+    const loungeLimit = req.body['loungeLimit'];
+    const activeConsoles = req.body['activeConsoles'];
+    db.query('INSERT INTO Lounges(loungeLimit, activeConsoles) VALUES (?, ?)', [loungeLimit, activeConsoles], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/lounges');
+        }
+    })
+});
 
+app.post("/lounges/update", (req, res) => {
+    const loungeID = req.body['loungeID'];
+    const loungeLimit = req.body['loungeLimit'];
+    const activeConsoles = req.body['activeConsoles'];
+    db.query('UPDATE Lounges SET loungeLimit = ?, activeConsoles = ? WHERE loungeID = ?', [loungeLimit, activeConsoles, loungeID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/lounges');
+        }
+    })
+});
+
+app.post("/lounges/delete", (req, res) => {
+    const loungeID = req.body['loungeID'];
+    db.query('DELETE FROM Lounges WHERE loungeID = ?', [loungeID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/lounges');
+        }
+    })
+});
 
 
 
