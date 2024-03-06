@@ -108,7 +108,7 @@ app.get("/customerSales", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('customerSales', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }
@@ -124,7 +124,7 @@ app.get("/consoles", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('consoles', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }
@@ -140,7 +140,7 @@ app.get("/employees", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('employees', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }
@@ -156,7 +156,7 @@ app.get("/gameSystems", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('gameSystems', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }
@@ -172,7 +172,7 @@ app.get("/Lounges_Employees", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('Lounges_Employees', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }
@@ -188,7 +188,7 @@ app.get("/lounges", (req, res) => {
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('lounges', {
-                // need to templatize the tables so data can be sent back
+                tableData: ress,
                 message: 'Account info retrieved'
             })
         }

@@ -14,33 +14,23 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>rentalInvoiceID</th>
                 <th>loungeID</th>
                 <th>employeeID</th>
                 <th>dateInfo</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2024-02-08</td>
+                <td>{{"Rental Invoice #"}}</td>
+                <td>{{"Lounge #"}}</td>
+                <td>{{"Employee #"}}</td>
+                <td>{{"Date"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2024-02-08</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add lounge_employee</div>
-        <form>
+        <form action="/Lounges_Employees/create" method="POST">
             <label for="loungeID">loungeID</label>
             <select name="loungeID"></select>
 
@@ -56,7 +46,7 @@
         
 
         <div>Update lounge_employee</div>
-        <form>
+        <form action="/Lounges_Employees/update" method="POST">
             <label for="loungeID">loungeID</label>
             <select name="loungeID"></select>
 
@@ -71,7 +61,7 @@
         </form>
 
         <div>Delete lounge_employee</div>
-        <form>
+        <form action="/Lounges_Employees/delete" method="POST">
             <div>Warning: You are about to delete a lounge_employee with the rentalInvoiceID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>

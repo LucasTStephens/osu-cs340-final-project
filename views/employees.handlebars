@@ -13,33 +13,23 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>employeeID</th>
                 <th>statusIn</th>
                 <th>position</th>
                 <th>hourlyWage</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>1</td>
-                <td>Manager</td>
-                <td>25.50</td>
+                <td>{{"Employee #"}}</td>
+                <td>{{"Clocked In"}}</td>
+                <td>{{"Title"}}</td>
+                <td>{{"Wage ($/hr)"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>1</td>
-                <td>Lounge Worker</td>
-                <td>20.00</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add employee</div>
-        <form>
+        <form action="/employees/create" method="POST">
             <label for="statusin">statusin</label>
             <input name="statusin">
 
@@ -55,7 +45,7 @@
         
 
         <div>Update employee</div>
-        <form>
+        <form action="/employees/update" method="POST">
             <label for="statusin">statusin</label>
             <input name="statusin">
 
@@ -70,7 +60,7 @@
         </form>
 
         <div>Delete employee</div>
-        <form>
+        <form action="/employees/delete" method="POST">
             <div>Warning: You are about to delete an employee with the EmployeeID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>

@@ -14,33 +14,23 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>systemID</th>
                 <th>loungeID</th>
                 <th>inUse</th>
                 <th>systemType</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>1</td>
-                <td>Yes</td>
-                <td>1</td>
+                <td>{{"Game System #"}}</td>
+                <td>{{"Lounge #"}}</td>
+                <td>{{"Rented?"}}</td>
+                <td>{{"Game Console Type"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>2</td>
-                <td>yes</td>
-                <td>2</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add game system</div>
-        <form>
+        <form action="/gameSystems/create" method="POST">
             <label for="loungeID">loungeID</label>
             <select name="loungeID"></select>
 
@@ -56,7 +46,7 @@
         
 
         <div>Update game system</div>
-        <form>
+        <form action="/gameSystems/update" method="POST">
             <label for="loungeID">loungeID</label>
             <select name="loungeID"></select>
 
@@ -71,7 +61,7 @@
         </form>
 
         <div>Delete game system</div>
-        <form>
+        <form action="/gameSystems/delete" method="POST">
             <div>Warning: You are about to delete a game system with the systemID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>

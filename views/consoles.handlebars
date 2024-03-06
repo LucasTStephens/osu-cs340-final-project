@@ -13,27 +13,19 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>consoleID</th>
                 <th>consoleType</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>PS5</td>
+                <td>{{"Game System #"}}</td>
+                <td>{{"Game Console Type"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>XBOX</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add console</div>
-        <form>
+        <form action="/consoles/create" method="POST">
             <label for="consoleType">consoleType</label>
             <input name="consoleType">
 
@@ -43,7 +35,7 @@
         
 
         <div>Update console</div>
-        <form>
+        <form action="/consoles/update" method="POST">
             <label for="consoleType">consoleType</label>
             <input name="consoleType">
 
@@ -52,7 +44,7 @@
         </form>
 
         <div>Delete console</div>
-        <form>
+        <form action="/consoles/delete" method="POST">
             <div>Warning: You are about to delete a console with the ConsoleID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>

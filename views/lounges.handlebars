@@ -13,30 +13,21 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>LoungeID</th>
                 <th>loungeLimit</th>
                 <th>activeConsoles</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>5</td>
-                <td>2</td>
+                <td>{{"Lounge #"}}</td>
+                <td>{{"Max Capacity"}}</td>
+                <td>{{"Active Players"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>10</td>
-                <td>2</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add lounge</div>
-        <form>
+        <form action="/lounges/create" method="POST">
             <label for="loungeLimit">loungeLimit</label>
             <input name="loungeLimit">
 
@@ -49,7 +40,7 @@
         
 
         <div>Update lounge</div>
-        <form>
+        <form action="/lounges/update" method="POST">
             <label for="loungeLimit">loungeLimit</label>
             <input name="loungeLimit">
 
@@ -61,7 +52,7 @@
         </form>
 
         <div>Delete lounge</div>
-        <form>
+        <form action="/Lounges/delete" method="POST">
             <div>Warning: You are about to delete a lounge with the loungeID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>

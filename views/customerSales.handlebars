@@ -13,36 +13,25 @@
         <button>New</button>
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>saleID</th>
                 <th>systemID</th>
                 <th>customerEmail</th>
                 <th>timeIn</th>
                 <th>timeOut</th>
             </tr>
+            {{#each tableData}}
             <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>1</td>
-                <td>1</td>
-                <td>jonbovi@aol.com</td>
-                <td>2/8/24 11:00</td>
-                <td></td>
+                <td>{{"Sale Order #"}}</td>
+                <td>{{"Game System #"}}</td>
+                <td>{{"Customer Email"}}</td>
+                <td>{{"Checked In"}}</td>
+                <td>{{"Checked Out"}}</td>
             </tr>
-            <tr>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-                <td>2</td>
-                <td>2</td>
-                <td>cloud99@aol.com</td>
-                <td>2/8/24 15:00</td>
-                <td>2/8/24 19:00</td>
-            </tr>
+            {{/each}}
         </table>
 
         <div>Add customer sale</div>
-        <form>
+        <form action="/customerSales/create" method="POST">
             <label for="systemID">systemID</label>
             <select name="systemID"></select>
 
@@ -61,7 +50,7 @@
         
 
         <div>Update customer sale</div>
-        <form>
+        <form action="/customerSales/update" method="POST">
             <label for="systemID">systemID</label>
             <select name="systemID"></select>
 
@@ -79,7 +68,7 @@
         </form>
 
         <div>Delete customer sale</div>
-        <form>
+        <form action="/customerSales/delete" method="POST">
             <div>Warning: You are about to delete a sale with the saleID: 1</div>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
