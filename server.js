@@ -115,6 +115,51 @@ app.get("/customerSales", (req, res) => {
     })
 });
 
+app.post("/customerSales/create", (req, res) => {
+    const systemID = req.body['systemID'];
+    const email = req.body['email'];
+    const timein = req.body['timein'];
+    const timeout = req.body['timeout'];
+    db.query('INSERT INTO CustomerSales(systemID, customerEmail, timeIn, timeOut) VALUES (?, ?, ?, ?)', [systemID, email, timein, timeout], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/customerSales');
+        }
+    })
+});
+
+app.post("/customerSales/update", (req, res) => {
+    const systemID = req.body['systemID'];
+    const email = req.body['email'];
+    const timein = req.body['timein'];
+    const timeout = req.body['timeout'];
+    const saleID = req.body['saleID'];
+    db.query('DELETE FROM customerSales WHERE saleID = ?', [saleID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/customerSales');
+        }
+    })
+});
+
+app.post("/customerSales/delete", (req, res) => {
+    const saleID = req.body['saleID'];
+    db.query('UPDATE customerSales SET systemID = ?, customerEmail = ?, timeIn = ?, timeOut = ? WHERE saleID = ?', [systemID, email, timein, timeout, saleID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/customerSales');
+        }
+    })
+});
+
+
+
 // CONSOLES
 app.get("/consoles", (req, res) => {
     db.query('SELECT consoleID as "Game System #", consoleType as "Game Console Type" FROM Consoles', async (error, ress) => {
@@ -127,6 +172,43 @@ app.get("/consoles", (req, res) => {
                 tableData: ress,
                 message: 'Account info retrieved'
             })
+        }
+    })
+});
+
+app.post("/consoles/create", (req, res) => {
+    const consoleType = req.body['consoleType'];
+    db.query('INSERT INTO Consoles(consoleType) VALUES (?)', [consoleType], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/consoles');
+        }
+    })
+});
+
+app.post("/consoles/update", (req, res) => {
+    const consoleType = req.body['consoleType'];
+    const consoleID = req.body['consoleID'];
+    db.query('UPDATE Consoles SET consoleType = ? WHERE consoleID = ?', [consoleType, consoleID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/consoles');
+        }
+    })
+});
+
+app.post("/consoles/delete", (req, res) => {
+    const consoleID = req.body['consoleType'];
+    db.query('DELETE FROM Consoles WHERE consoleID = ?', [consoleID], async (error, ress) => {
+        if(error){
+            console.log(error)
+        }
+        else {
+            res.redirect('/consoles');
         }
     })
 });
