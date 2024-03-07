@@ -13,11 +13,11 @@
         <button>New</button>
         <table>
             <tr>
-                <th>saleID</th>
-                <th>systemID</th>
-                <th>customerEmail</th>
-                <th>timeIn</th>
-                <th>timeOut</th>
+                <th>Sale Order #</th>
+                <th>Game System #</th>
+                <th>Customer Email</th>
+                <th>Checked In</th>
+                <th>Checked Out</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -32,16 +32,26 @@
 
         <div>Add customer sale</div>
         <form action="/customerSales/create" method="POST">
-            <label for="systemID">systemID</label>
-            <select name="systemID"></select>
+            <label for="systemID">Game System</label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="email">customer email</label>
-            <select name="email"></select>
+            <label for="email">Customer Email</label>
+            <select name="email" id="select-email">
+                <option value="">Select Email</option>
+                {{#each tableData}}
+                <option value="{{"Customer Email"}}">{{"Customer Email"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="timein">timein</label>
+            <label for="timein">Checked In</label>
             <input name="timein">
 
-            <label for="timeout">timeout</label>
+            <label for="timeout">Checked Out</label>
             <input name="timeout">
 
             <button type="submit">Add</button>
@@ -51,19 +61,34 @@
 
         <div>Update customer sale</div>
         <form action="/customerSales/update" method="POST">
-            <label for="saleID">saleID</label>
-            <select name="saleID"></select>
+            <label for="saleID">Sale Order</label>
+            <select name="saleID" id="select-saleID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Sale Order #"}}">{{"Sale Order #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="systemID">systemID</label>
-            <select name="systemID"></select>
+            <label for="systemID">Game System</label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="email">customer email</label>
-            <select name="email"></select>
+            <label for="email">Customer Email</label>
+            <select name="email" id="select-email">
+                <option value="">Select Email</option>
+                {{#each tableData}}
+                <option value="{{"Customer Email"}}">{{"Customer Email"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="timein">timein</label>
+            <label for="timein">Checked In</label>
             <input name="timein">
 
-            <label for="timeout">timeout</label>
+            <label for="timeout">Checked Out</label>
             <input name="timeout">
 
             <button type="submit">Update</button>
@@ -72,8 +97,13 @@
 
         <div>Delete customer sale</div>
         <form action="/customerSales/delete" method="POST">
-            <label for="saleID">Please select the saleID of the sale you wish to delete:</label>
-            <select name="saleID"></select>
+            <label for="saleID">Please select the ID # of the sale you wish to delete:</label>
+            <select name="saleID" id="select-saleID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Sale Order #"}}">{{"Sale Order #"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
