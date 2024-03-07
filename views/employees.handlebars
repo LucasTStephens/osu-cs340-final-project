@@ -13,10 +13,10 @@
         <button>New</button>
         <table>
             <tr>
-                <th>employeeID</th>
-                <th>statusIn</th>
-                <th>position</th>
-                <th>hourlyWage</th>
+                <th>Employee ID</th>
+                <th>Clocked In</th>
+                <th>Position</th>
+                <th>Wage($/hr)</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -30,13 +30,13 @@
 
         <div>Add employee</div>
         <form action="/employees/create" method="POST">
-            <label for="statusin">statusin</label>
+            <label for="statusin">Clocked In</label>
             <input name="statusin">
 
-            <label for="position">position</label>
+            <label for="position">Position</label>
             <input name="position">
 
-            <label for="hourlywage">hourlywage</label>
+            <label for="hourlywage">Wage($/hr)</label>
             <input name="hourlywage">
 
             <button type="submit">Add</button>
@@ -46,16 +46,21 @@
 
         <div>Update employee</div>
         <form action="/employees/update" method="POST">
-            <label for="employeeID">employeeID</label>
-            <select name="employeeID"></select>
+            <label for="employeeID">Employee ID</label>
+            <select name="employeeID" id="select-employeeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Employee #"}}">{{"Employee #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="statusin">statusin</label>
+            <label for="statusin">Clocked In</label>
             <input name="statusin">
 
-            <label for="position">position</label>
+            <label for="position">Position</label>
             <input name="position">
 
-            <label for="hourlywage">hourlywage</label>
+            <label for="hourlywage">Wage($/hr)</label>
             <input name="hourlywage">
 
             <button type="submit">Update</button>
@@ -64,8 +69,13 @@
 
         <div>Delete employee</div>
         <form action="/employees/delete" method="POST">
-            <label for="employeeID">Please select the employeeID of the employee you wish to delete: </label>
-            <select name="employeeID"></select>
+            <label for="employeeID">Please select the employee ID of the employee you wish to delete: </label>
+            <select name="employeeID" id="select-employeeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Employee #"}}">{{"Employee #"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
