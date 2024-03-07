@@ -14,10 +14,10 @@
         <button>New</button>
         <table>
             <tr>
-                <th>email</th>
-                <th>first name</th>
-                <th>last name</th>
-                <th>DOB</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB (YYYY-MM-DD)</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -40,7 +40,7 @@
             <label for="last-name">last name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">date of birth</label>
+            <label for="date-of-birth">date of birth(YYYY-MM-DD)</label>
             <input name="date-of-birth">
 
             <button type="submit">Add</button>
@@ -50,7 +50,7 @@
 
         <div>Update customer account</div>
         <form action="/customerAccounts/update" method="POST">
-            <label for="email">email</label>
+            <label for="email">Email</label>
             <input name="email">
 
             <label for="first-name">first name</label>
@@ -59,7 +59,7 @@
             <label for="last-name">last name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">date of birth</label>
+            <label for="date-of-birth">date of birth(YYYY-MM-DD)</label>
             <input name="date-of-birth">
 
             <button type="submit">Update</button>
@@ -69,7 +69,12 @@
         <div>Delete customer account</div>
         <form action="/customerAccounts/delete" method="POST">
             <label for="email">Please enter the email of the account you wish to delete: </label>
-            <input name="email">
+            <select name="email" id="select-email">
+                <option value="">Select Email</option>
+                {{#each tableData}}
+                <option value="{{Email}}">{{"Email"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
