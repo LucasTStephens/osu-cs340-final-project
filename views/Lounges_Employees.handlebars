@@ -14,10 +14,10 @@
         <button>New</button>
         <table>
             <tr>
-                <th>rentalInvoiceID</th>
-                <th>loungeID</th>
-                <th>employeeID</th>
-                <th>dateInfo</th>
+                <th>Rental Invoice #</th>
+                <th>Lounge #</th>
+                <th>Employee #</th>
+                <th>Date</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -31,13 +31,23 @@
 
         <div>Add lounge_employee</div>
         <form action="/Lounges_Employees/create" method="POST">
-            <label for="loungeID">loungeID</label>
-            <select name="loungeID"></select>
+            <label for="loungeID">Lounge</label>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="employeeID">employeeID</label>
-            <select name="employeeID"></select>
+            <label for="employeeID">Employee</label>
+            <select name="employeeID" id="select-employeeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Employee #"}}">{{"Employee #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="dateInfo">dateInfo</label>
+            <label for="dateInfo">Date (YYYY-MM-DD)</label>
             <input name="dateInfo">
 
             <button type="submit">Add</button>
@@ -47,16 +57,31 @@
 
         <div>Update lounge_employee</div>
         <form action="/Lounges_Employees/update" method="POST">
-            <label for="rentalInvoiceID">rentalInvoiceID</label>
-            <select name="rentalInvoiceID"></select>
+            <label for="rentalInvoiceID">Rental Invoice ID</label>
+           <select name="rentalInvoiceID" id="select-rentalInvoiceID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Rental Invoice #"}}">{{"Rental Invoice #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="loungeID">loungeID</label>
-            <select name="loungeID"></select>
+            <label for="loungeID">Lounge</label>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="employeeID">employeeID</label>
-            <select name="employeeID"></select>
+            <label for="employeeID">Employee</label>
+            <select name="employeeID" id="select-employeeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Employee #"}}">{{"Employee #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="dateInfo">dateInfo</label>
+            <label for="dateInfo">Date (YYYY-MM-DD)</label>
             <input name="dateInfo">
 
             <button type="submit">Update</button>
@@ -65,8 +90,13 @@
 
         <div>Delete lounge_employee</div>
         <form action="/Lounges_Employees/delete" method="POST">
-            <label for="rentalInvoiceID">Please select the rentalInvoiceID of the rental you would like to delete: </label>
-            <select name="rentalInvoiceID"></select>
+            <label for="rentalInvoiceID">Please select the rental invoice ID of the invoice you would like to delete: </label>
+            <select name="rentalInvoiceID" id="select-rentalInvoiceID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Rental Invoice #"}}">{{"Rental Invoice #"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
