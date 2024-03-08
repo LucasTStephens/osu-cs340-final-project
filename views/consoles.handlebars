@@ -13,8 +13,8 @@
         <button>New</button>
         <table>
             <tr>
-                <th>consoleID</th>
-                <th>consoleType</th>
+                <th>Console System #</th>
+                <th>Game Console Type</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -26,7 +26,7 @@
 
         <div>Add console</div>
         <form action="/consoles/create" method="POST">
-            <label for="consoleType">consoleType</label>
+            <label for="consoleType">Game Console Type</label>
             <input name="consoleType">
 
             <button type="submit">Add</button>
@@ -36,10 +36,15 @@
 
         <div>Update console</div>
         <form action="/consoles/update" method="POST">
-            <label for="consoleID">consoleID</label>
-            <select name="consoleID"></select>
+            <label for="systemID">Console System</label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="consoleType">consoleType</label>
+            <label for="consoleType">Game Console Type</label>
             <input name="consoleType">
 
             <button type="submit">Update</button>
@@ -48,8 +53,13 @@
 
         <div>Delete console</div>
         <form action="/consoles/delete" method="POST">
-            <label for="consoleID">Please select the consoleID of the console you wish to delete:</label>
-            <select name="consoleID"></select>
+            <label for="consoleID">Please select the console system ID of the console you wish to delete:</label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
