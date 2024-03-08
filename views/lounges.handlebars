@@ -13,9 +13,9 @@
         <button>New</button>
         <table>
             <tr>
-                <th>LoungeID</th>
-                <th>loungeLimit</th>
-                <th>activeConsoles</th>
+                <th>Lounge #</th>
+                <th>Max Capacity</th>
+                <th>Active Players</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -28,10 +28,10 @@
 
         <div>Add lounge</div>
         <form action="/lounges/create" method="POST">
-            <label for="loungeLimit">loungeLimit</label>
+            <label for="loungeLimit">Max Capacity</label>
             <input name="loungeLimit">
 
-            <label for="activeConsoles">activeConsoles</label>
+            <label for="activeConsoles">Active Players</label>
             <input name="activeConsoles">
 
             <button type="submit">Add</button>
@@ -41,13 +41,18 @@
 
         <div>Update lounge</div>
         <form action="/lounges/update" method="POST">
-            <label for="loungeID">loungeID</label>
-            <select name="loungeID"></select>
+            <label for="loungeID">Lounge</label>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="loungeLimit">loungeLimit</label>
+            <label for="loungeLimit">Max Capacity</label>
             <input name="loungeLimit">
 
-            <label for="activeConsoles">activeConsoles</label>
+            <label for="activeConsoles">Active Players</label>
             <input name="activeConsoles">
             
             <button type="submit">Update</button>
@@ -57,7 +62,12 @@
         <div>Delete lounge</div>
         <form action="/Lounges/delete" method="POST">
             <label for="loungeID">Please select the loungeID of the lounge you would like to delete: </label>
-            <select name="loungeID"></select>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
             <button type="submit">Delete</button>
             <button type="reset">Cancel</button>
         </form>
