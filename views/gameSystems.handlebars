@@ -14,10 +14,10 @@
         <button>New</button>
         <table>
             <tr>
-                <th>systemID</th>
-                <th>loungeID</th>
-                <th>inUse</th>
-                <th>systemType</th>
+                <th>Game System #</th>
+                <th>Lounge #</th>
+                <th>Rented?</th>
+                <th>Game Console Type</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -31,14 +31,24 @@
 
         <div>Add game system</div>
         <form action="/gameSystems/create" method="POST">
-            <label for="loungeID">loungeID</label>
-            <select name="loungeID"></select>
+            <label for="loungeID">Lounge</label>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="inUse">inUse</label>
+            <label for="inUse">Rented?</label>
             <input name="inUse">
 
-            <label for="systemType">systemType</label>
-            <select name="systemType"></select>
+            <label for="systemType">Game Console Type</label>
+            <select name="systemType" id="select-systemType">
+                <option value ="">Select Type</option>
+                {{#each tableData}}
+                <option value="{{"Game Console Type"}}">{{"Game Console Type"}}</option>
+                {{/each}}
+            </select>
 
             <button type="submit">Add</button>
             <button type="reset">Cancel</button>
@@ -47,17 +57,32 @@
 
         <div>Update game system</div>
         <form action="/gameSystems/update" method="POST">
-            <label for="systemID">systemID</label>
-            <select name="systemID"></select>
+            <label for="systemID">Game System</label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="loungeID">loungeID</label>
-            <select name="loungeID"></select>
+            <label for="loungeID">Lounge</label>
+            <select name="loungeID" id="select-loungeID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Lounge #"}}">{{"Lounge #"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="inUse">inUse</label>
+            <label for="inUse">Rented?</label>
             <input name="inUse">
 
-            <label for="systemType">systemType</label>
-            <select name="systemType"></select>
+            <label for="systemType">Game Console Type</label>
+            <select name="systemType" id="select-systemType">
+                <option value ="">Select Type</option>
+                {{#each tableData}}
+                <option value="{{"Game Console Type"}}">{{"Game Console Type"}}</option>
+                {{/each}}
+            </select>
 
             <button type="submit">Update</button>
             <button type="reset">Cancel</button>
@@ -65,9 +90,13 @@
 
         <div>Delete game system</div>
         <form action="/gameSystems/delete" method="POST">
-            <label for="systemID">Please select the systemID of the gamesystem you wish to delete: </label>
-            <select name="systemID"></select>
-            <button type="submit">Delete</button>
+            <label for="systemID">Please select the Game System ID of the game system you wish to delete: </label>
+            <select name="systemID" id="select-systemID">
+                <option value ="">Select ID #</option>
+                {{#each tableData}}
+                <option value="{{"Game System #"}}">{{"Game System #"}}</option>
+                {{/each}}
+            </select>
             <button type="reset">Cancel</button>
         </form>
     </body>

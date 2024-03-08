@@ -31,16 +31,16 @@
 
         <div>Add customer account</div>
         <form action="/customerAccounts/create" method="POST">
-            <label for="email">email</label>
+            <label for="email">Email</label>
             <input name="email">
 
-            <label for="first-name">first name</label>
+            <label for="first-name">First Name</label>
             <input name="first-name">
 
-            <label for="last-name">last name</label>
+            <label for="last-name">Last Name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">date of birth(YYYY-MM-DD)</label>
+            <label for="date-of-birth">Date of Birth(YYYY-MM-DD)</label>
             <input name="date-of-birth">
 
             <button type="submit">Add</button>
@@ -51,15 +51,20 @@
         <div>Update customer account</div>
         <form action="/customerAccounts/update" method="POST">
             <label for="email">Email</label>
-            <input name="email">
+            <select name="email" id="select-email">
+                <option value="">Select Email</option>
+                {{#each tableData}}
+                <option value="{{Email}}">{{"Email"}}</option>
+                {{/each}}
+            </select>
 
-            <label for="first-name">first name</label>
+            <label for="first-name">First Name</label>
             <input name="first-name">
 
-            <label for="last-name">last name</label>
+            <label for="last-name">Last Name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">date of birth(YYYY-MM-DD)</label>
+            <label for="date-of-birth">Date of Birth(YYYY-MM-DD)</label>
             <input name="date-of-birth">
 
             <button type="submit">Update</button>
@@ -68,7 +73,7 @@
 
         <div>Delete customer account</div>
         <form action="/customerAccounts/delete" method="POST">
-            <label for="email">Please enter the email of the account you wish to delete: </label>
+            <label for="email">Please select the email of the account you wish to delete: </label>
             <select name="email" id="select-email">
                 <option value="">Select Email</option>
                 {{#each tableData}}
