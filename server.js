@@ -220,7 +220,7 @@ app.get("/employees", (req, res) => {
             console.log(error)
         }
         if( ress.length > 0 ) {
-            console.log(ress)
+            console.log(ress[1]['Clocked In'])
             return res.render('employees', {
                 tableData: ress,
                 message: 'Account info retrieved'
