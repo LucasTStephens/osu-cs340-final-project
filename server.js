@@ -272,7 +272,7 @@ app.post("/employees/delete", (req, res) => {
 
 // GAMESYSTEMS
 app.get("/gameSystems", (req, res) => {
-    db.query('SELECT systemID as "Game System #", loungeID as "Lounge #", inUse as "Rented?", systemType as "Game Console Type" FROM GameSystems', async (error, ress) => {
+    db.query('SELECT GameSystems.systemID as "Game System #", GameSystems. loungeID as "Lounge #", GameSystems.inUse as "Rented?", Consoles.consoleType as "Game Console Type" FROM GameSystems INNER JOIN Consoles ON GameSystems.systemType = Consoles.consoleID;', async (error, ress) => {
         if(error){
             console.log(error)
         }
