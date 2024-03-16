@@ -1,5 +1,6 @@
 table, th, td {
     border:1px solid black;
+    background-color: plum;
 }
 
 
@@ -33,5 +34,12 @@ color: blue;
     color: blueviolet;
   }
 
-body {margin: 0;
+body {
+    margin: 0;
+    background-color: darkslategrey;
+}
+
+button{
+    background-color: gainsboro;
+    font-size: 15px;
 }

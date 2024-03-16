@@ -45,8 +45,8 @@
 
         <div>Update console</div>
         <form action="/consoles/update" method="POST">
-            <label for="systemID">Console System</label>
-            <select name="systemID" id="select-systemID">
+            <label for="consoleID">Console System</label>
+            <select name="consoleID" id="select-consoleID">
                 <option value ="">Select ID #</option>
                 {{#each tableData}}
                 <option value="{{"Game System #"}}">{{"Game System #"}}</option>
@@ -63,7 +63,7 @@
         <div>Delete console</div>
         <form action="/consoles/delete" method="POST">
             <label for="consoleID">Please select the console system ID of the console you wish to delete:</label>
-            <select name="systemID" id="select-systemID">
+            <select name="consoleID" id="select-consoleID">
                 <option value ="">Select ID #</option>
                 {{#each tableData}}
                 <option value="{{"Game System #"}}">{{"Game System #"}}</option>

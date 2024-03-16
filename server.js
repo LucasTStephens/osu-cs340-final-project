@@ -202,7 +202,7 @@ app.post("/consoles/update", (req, res) => {
 });
 
 app.post("/consoles/delete", (req, res) => {
-    const consoleID = req.body['consoleType'];
+    const consoleID = req.body['consoleID'];
     db.query('DELETE FROM Consoles WHERE consoleID = ?', [consoleID], async (error, ress) => {
         if(error){
             console.log(error)
