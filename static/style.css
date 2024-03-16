@@ -1,3 +1,37 @@
 table, th, td {
     border:1px solid black;
 }
+
+
+/* 
+Citation for the following fuction: Nav Bar CSS
+Date: 3/15/24
+Adapted from: W3 Schools
+Source URL: https://www.w3schools.com/howto/howto_js_topnav.asp
+*/
+
+.nav {
+    overflow: hidden;
+    background-color: white;
+}
+
+.nav a{
+    background-color: gainsboro;
+    float: left;
+    text-align: center;
+    padding: 15px 75px;
+    font-size: 15px;
+}
+
+.nav a:hover{
+background-color: grey;
+color: blue;
+}
+
+.nav a.active {
+    background-color: burlywood;
+    color: blueviolet;
+  }
+
+body {margin: 0;
+}
