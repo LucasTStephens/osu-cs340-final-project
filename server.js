@@ -102,18 +102,22 @@ app.post("/customerAccounts/delete", (req, res) => {
 // CUSTOMERSALES
 app.get("/customerSales", (req, res) => {
     db.query('SELECT saleID as "Sale Order #", systemID as "Game System #", customerEmail as "Customer Email", timeIn as "Checked In", timeOut as "Checked Out" FROM CustomerSales', async (error, ress) => {
-        if(error){
+        db.query('SELECT GameSystems.systemID as "Game System #" FROM GameSystems ORDER BY GameSystems.systemID ASC', async (error, resss) => {
+            db.query('SELECT CustomerAccounts.customerEmail as "Customer Email" FROM CustomerAccounts ORDER BY CustomerAccounts.customerEmail ASC', async (error, ressss) => {
+            if(error){
             console.log(error)
         }
         if( ress.length > 0 ) {
             console.log(ress)
             return res.render('customerSales', {
                 tableData: ress,
+                tableData2: resss,
+                tableData3: ressss,
                 message: 'Account info retrieved'
             })
         }
     })
-});
+})})});
 
 app.post("/customerSales/create", (req, res) => {
     const systemID = req.body['systemID'];
