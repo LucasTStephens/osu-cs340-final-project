@@ -56,8 +56,8 @@
                 {{/each}}
             </select>
 
-            <label for="dateInfo">Date (YYYY-MM-DD)</label>
-            <input name="dateInfo">
+            <label for="dateinfo">Date (YYYY-MM-DD)</label>
+            <input name="dateinfo">
 
             <button type="submit">Add</button>
             <button type="reset">Cancel</button>
@@ -67,7 +67,7 @@
         <div>Update lounge_employee</div>
         <form action="/Lounges_Employees/update" method="POST">
             <label for="rentalInvoiceID">Rental Invoice ID</label>
-           <select name="rentalInvoiceID" id="select-rentalInvoiceID">
+            <select name="rentalInvoiceID" id="select-rentalInvoiceID">
                 <option value ="">Select ID #</option>
                 {{#each tableData}}
                 <option value="{{"Rental Invoice #"}}">{{"Rental Invoice #"}}</option>
@@ -90,8 +90,8 @@
                 {{/each}}
             </select>
 
-            <label for="dateInfo">Date (YYYY-MM-DD)</label>
-            <input name="dateInfo">
+            <label for="dateinfo">Date (YYYY-MM-DD)</label>
+            <input name="dateinfo">
 
             <button type="submit">Update</button>
             <button type="reset">Cancel</button>
