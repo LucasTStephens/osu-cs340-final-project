@@ -136,7 +136,7 @@ app.post("/customerSales/update", (req, res) => {
     const timein = req.body['timein'];
     const timeout = req.body['timeout'];
     const saleID = req.body['saleID'];
-    db.query('DELETE FROM customerSales WHERE saleID = ?', [saleID], async (error, ress) => {
+    db.query('UPDATE CustomerSales SET systemID = ?, customerEmail = ?, timeIn = ?, timeOut = ? WHERE saleID = ?', [systemID, email, timein, timeout, saleID], async (error, ress) => {
         if(error){
             console.log(error)
         }
@@ -148,7 +148,7 @@ app.post("/customerSales/update", (req, res) => {
 
 app.post("/customerSales/delete", (req, res) => {
     const saleID = req.body['saleID'];
-    db.query('UPDATE customerSales SET systemID = ?, customerEmail = ?, timeIn = ?, timeOut = ? WHERE saleID = ?', [systemID, email, timein, timeout, saleID], async (error, ress) => {
+    db.query('DELETE FROM CustomerSales WHERE saleID = ?', [saleID], async (error, ress) => {
         if(error){
             console.log(error)
         }
@@ -157,7 +157,6 @@ app.post("/customerSales/delete", (req, res) => {
         }
     })
 });
-
 
 
 // CONSOLES
