@@ -272,18 +272,24 @@ app.post("/employees/delete", (req, res) => {
 // GAMESYSTEMS
 app.get("/gameSystems", (req, res) => {
     db.query('SELECT GameSystems.systemID as "Game System #", GameSystems. loungeID as "Lounge #", GameSystems.inUse as "Rented?", Consoles.consoleType as "Game Console Type" FROM GameSystems INNER JOIN Consoles ON GameSystems.systemType = Consoles.consoleID;', async (error, ress) => {
-        if(error){
+        db.query('SELECT Consoles.consoleType as "Game Console Type" FROM Consoles ORDER BY Consoles.consoleType ASC;', async (error, resss) => {
+            db.query('SELECT loungeID as "Lounge #" FROM Lounges ORDER BY Lounges.loungeID ASC', async (error, ressss) => { 
+            if(error){
             console.log(error)
         }
         if( ress.length > 0 ) {
             console.log(ress)
+            console.log(resss)
+            console.log(ressss)
             return res.render('gameSystems', {
                 tableData: ress,
+                tableData2: resss,
+                tableData3: ressss,
                 message: 'Account info retrieved'
             })
         }
     })
-});
+})})});
 
 app.post("/gamesystems/create", (req, res) => {
     const loungeID = req.body['loungeID'];
