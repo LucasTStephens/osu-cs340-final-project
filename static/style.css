@@ -20,7 +20,7 @@ Source URL: https://www.w3schools.com/howto/howto_js_topnav.asp
     background-color: gainsboro;
     float: left;
     text-align: center;
-    padding: 15px 75px;
+    padding: 10px 78px;
     font-size: 15px;
 }
 
@@ -41,5 +41,10 @@ body {
 
 button{
     background-color: gainsboro;
+    font-size: 10px;
+}
+
+div{
+    font-weight: bold;
     font-size: 15px;
 }
