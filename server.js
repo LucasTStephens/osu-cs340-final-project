@@ -243,7 +243,7 @@ app.post("/employees/create", (req, res) => {
 });
 
 app.post("/employees/update", (req, res) => {
-    const employeeID = req.body['EmployeeID'];
+    const employeeID = req.body['employeeID'];
     const statusin = req.body['statusin'];
     const position = req.body['position'];
     const hourlywage = req.body['hourlywage'];
@@ -258,7 +258,7 @@ app.post("/employees/update", (req, res) => {
 });
 
 app.post("/employees/delete", (req, res) => {
-    const employeeID = req.body['EmployeeID'];
+    const employeeID = req.body['employeeID'];
     db.query('DELETE FROM Employees WHERE employeeID = ?', [employeeID], async (error, ress) => {
         if(error){
             console.log(error)
