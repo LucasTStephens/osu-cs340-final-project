@@ -339,6 +339,8 @@ app.post("/gamesystems/delete", (req, res) => {
 // LOUNGES_EMPLOYEES
 app.get("/Lounges_Employees", (req, res) => {
     db.query('SELECT rentalInvoiceID as "Rental Invoice #", loungeID as "Lounge #", employeeID as "Employee #", dateinfo as "Date" FROM LoungesEmployees', async (error, ress) => {
+        db.query('SELECT loungeID as "Lounge #" FROM Lounges ORDER BY Lounges.loungeID ASC', async (error, resss) => { 
+            db.query('SELECT employeeID as "Employee #" FROM Employees ORDER BY Employees.employeeID ASC', async (error, ressss) => { 
         if(error){
             console.log(error)
         }
@@ -346,11 +348,13 @@ app.get("/Lounges_Employees", (req, res) => {
             console.log(ress)
             return res.render('Lounges_Employees', {
                 tableData: ress,
+                tableData2: resss,
+                tableData3: ressss,
                 message: 'Account info retrieved'
             })
         }
     })
-});
+})})});
 
 app.post("/Lounges_Employees/create", (req, res) => {
     const loungeID = req.body['loungeID'];
