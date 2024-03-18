@@ -40,7 +40,10 @@
         <div>Add employee</div>
         <form action="/employees/create" method="POST">
             <label for="statusin">Clocked In</label>
-            <input name="statusin">
+            <select name="statusin" id="select-statusin">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
             <label for="position">Position</label>
             <input name="position">
@@ -64,7 +67,11 @@
             </select>
 
             <label for="statusin">Clocked In</label>
-            <input name="statusin">
+            <select name="statusin" id="select-statusin">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
 
             <label for="position">Position</label>
             <input name="position">

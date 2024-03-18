@@ -225,10 +225,10 @@ app.get("/employees", (req, res) => {
         if( ress.length > 0 ) {
             for (let i = 0; i < ress.length; i++) {
                 if (ress[i]['Clocked In'] == 1) {
-                    ress[i]['Clocked In'] = 'True'
+                    ress[i]['Clocked In'] = 'Yes'
                 }
                 else {
-                    ress[i]['Clocked In'] = 'False'
+                    ress[i]['Clocked In'] = 'No'
                 }
             }
             return res.render('employees', {
@@ -240,9 +240,15 @@ app.get("/employees", (req, res) => {
 });
 
 app.post("/employees/create", (req, res) => {
-    const statusin = req.body['statusin'];
+    let statusin = req.body['statusin'];
     const position = req.body['position'];
     const hourlywage = req.body['hourlywage'];
+    if (statusin === 'Yes') {
+        statusin = '1'
+    }
+    if (statusin === 'No') {
+        statusin = '0'
+    } 
     db.query('INSERT INTO Employees(statusIn, position, hourlyWage) VALUES (?, ?, ?)', [statusin, position, hourlywage], async (error, ress) => {
         if(error){
             console.log(error)
