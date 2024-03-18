@@ -223,7 +223,14 @@ app.get("/employees", (req, res) => {
             console.log(error)
         }
         if( ress.length > 0 ) {
-            console.log(ress[1]['Clocked In'])
+            for (let i = 0; i < ress.length; i++) {
+                if (ress[i]['Clocked In'] == 1) {
+                    ress[i]['Clocked In'] = 'True'
+                }
+                else {
+                    ress[i]['Clocked In'] = 'False'
+                }
+            }
             return res.render('employees', {
                 tableData: ress,
                 message: 'Account info retrieved'
@@ -282,6 +289,14 @@ app.get("/gameSystems", (req, res) => {
             console.log(error)
         }
         if( ress.length > 0 ) {
+            for (let i = 0; i < ress.length; i++) {
+                if (ress[i]['Rented?'] == 1) {
+                    ress[i]['Rented?'] = 'True'
+                }
+                else {
+                    ress[i]['Rented?'] = 'False'
+                }
+            }
             console.log(ress)
             console.log(resss)
             console.log(ressss)
