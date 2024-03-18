@@ -291,10 +291,10 @@ app.get("/gameSystems", (req, res) => {
         if( ress.length > 0 ) {
             for (let i = 0; i < ress.length; i++) {
                 if (ress[i]['Rented?'] == 1) {
-                    ress[i]['Rented?'] = 'True'
+                    ress[i]['Rented?'] = 'Yes'
                 }
                 else {
-                    ress[i]['Rented?'] = 'False'
+                    ress[i]['Rented?'] = 'No'
                 }
             }
             console.log(ress)
@@ -312,8 +312,14 @@ app.get("/gameSystems", (req, res) => {
 
 app.post("/gamesystems/create", (req, res) => {
     const loungeID = req.body['loungeID'];
-    const inUse = req.body['inUse'];
+    let inUse = req.body['inUse'];
     const systemType = req.body['systemType'];
+    if (inUse === 'Yes') {
+        inUse = '1'
+    }
+    if (inUse === 'No') {
+        inUse = '0'
+    }
     db.query('SELECT Consoles.consoleID FROM Consoles WHERE consoleType =  (?)', [systemType], async (error, resss) => {
            const systemID = String(resss[0]["consoleID"])
         db.query('INSERT INTO GameSystems(loungeID, inUse, systemType) VALUES (?, ?, ?)', [loungeID, inUse, systemID], async (error, ress) => {
@@ -329,8 +335,14 @@ app.post("/gamesystems/create", (req, res) => {
 app.post("/gamesystems/update", (req, res) => {
     const systemID = req.body['systemID'];
     const loungeID = req.body['loungeID'];
-    const inUse = req.body['inUse'];
+    let inUse = req.body['inUse'];
     const systemType = req.body['systemType'];
+    if (inUse === 'Yes') {
+        inUse = '1'
+    }
+    if (inUse === 'No') {
+        inUse = '0'
+    }
     db.query('SELECT Consoles.consoleID FROM Consoles WHERE consoleType =  (?)', [systemType], async (error, resss) => {
         const systemType2 = String(resss[0]["consoleID"])
         db.query('UPDATE GameSystems SET loungeID = ?, inUse = ?, systemType = ? WHERE systemID = ?', [loungeID, inUse, systemType2, systemID], async (error, ress) => {
