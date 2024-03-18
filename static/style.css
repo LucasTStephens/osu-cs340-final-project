@@ -15,7 +15,7 @@ Source URL: https://www.w3schools.com/howto/howto_js_topnav.asp
 
 .nav {
     overflow: hidden;
-    background-color: white;
+    background-color: gainsboro;
 }
 
 .nav a{
