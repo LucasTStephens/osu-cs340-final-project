@@ -1,6 +1,8 @@
 table, th, td {
     border:1px solid black;
     background-color: plum;
+    padding: 5px;
+    margin: 10px;
 }
 
 
@@ -20,7 +22,7 @@ Source URL: https://www.w3schools.com/howto/howto_js_topnav.asp
     background-color: gainsboro;
     float: left;
     text-align: center;
-    padding: 10px 78px;
+    padding: 10px 10px 10px 10px;
     font-size: 15px;
 }
 
