@@ -316,7 +316,9 @@ app.post("/gamesystems/update", (req, res) => {
     const loungeID = req.body['loungeID'];
     const inUse = req.body['inUse'];
     const systemType = req.body['systemType'];
-    db.query('UPDATE GameSystems SET loungeID = ?, inUse = ?, systemType = ? WHERE systemID = ?', [loungeID, inUse, systemType, systemID], async (error, ress) => {
+    db.query('SELECT Consoles.consoleID FROM Consoles WHERE consoleType =  (?)', [systemType], async (error, resss) => {
+        const systemType2 = String(resss[0]["consoleID"])
+        db.query('UPDATE GameSystems SET loungeID = ?, inUse = ?, systemType = ? WHERE systemID = ?', [loungeID, inUse, systemType2, systemID], async (error, ress) => {
         if(error){
             console.log(error)
         }
@@ -324,7 +326,7 @@ app.post("/gamesystems/update", (req, res) => {
             res.redirect('/gamesystems');
         }
     })
-});
+})});
 
 app.post("/gamesystems/delete", (req, res) => {
     const systemID = req.body['systemID'];
