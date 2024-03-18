@@ -299,7 +299,9 @@ app.post("/gamesystems/create", (req, res) => {
     const loungeID = req.body['loungeID'];
     const inUse = req.body['inUse'];
     const systemType = req.body['systemType'];
-    db.query('INSERT INTO GameSystems(loungeID, inUse, systemType) VALUES (?, ?, ?)', [loungeID, inUse, systemType], async (error, ress) => {
+    db.query('SELECT Consoles.consoleID FROM Consoles WHERE consoleType =  (?)', [systemType], async (error, resss) => {
+           const systemID = String(resss[0]["consoleID"])
+        db.query('INSERT INTO GameSystems(loungeID, inUse, systemType) VALUES (?, ?, ?)', [loungeID, inUse, systemID], async (error, ress) => {
         if(error){
             console.log(error)
         }
@@ -307,7 +309,7 @@ app.post("/gamesystems/create", (req, res) => {
             res.redirect('/gamesystems');
         }
     })
-});
+})});
 
 app.post("/gamesystems/update", (req, res) => {
     const systemID = req.body['systemID'];
