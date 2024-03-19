@@ -263,9 +263,15 @@ app.post("/employees/create", (req, res) => {
 
 app.post("/employees/update", (req, res) => {
     const employeeID = req.body['employeeID'];
-    const statusin = req.body['statusin'];
+    let statusin = req.body['statusin'];
     const position = req.body['position'];
     const hourlywage = req.body['hourlywage'];
+    if (statusin === 'Yes') {
+        statusin = '1'
+    }
+    if (statusin === 'No') {
+        statusin = '0'
+    } 
     db.query('UPDATE Employees SET statusIn = ?, position = ?, hourlyWage = ? WHERE employeeID = ?', [statusin, position, hourlywage, employeeID], async (error, ress) => {
         if(error){
             console.log(error)
