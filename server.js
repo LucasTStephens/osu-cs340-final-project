@@ -4,7 +4,7 @@ var exphbs = require('express-handlebars')
 const mysql = require("mysql")
 const dotenv = require('dotenv')
 
-
+// Set up modules for serving
 var app = express()
 
 app.use(express.urlencoded({extended: 'false'}))
@@ -16,6 +16,7 @@ app.set("view engine", "handlebars")
 
 dotenv.config({ path: './.env'})
 
+// Create database connection with credentials in .env
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -23,6 +24,7 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 })
 
+// output if connection was successful
 db.connect((error) => {
     if(error) {
         console.log(error)
@@ -41,7 +43,7 @@ app.get("/index", function(req, res){
 });
 
 
-// CUSTOMERACCOUNTS
+// CUSTOMERACCOUNTS in order: READ, CREATE, UPDATE, DELETE
 app.get("/customerAccounts", (req, res) => {
     db.query('SELECT firstName as "First Name", lastName as "Last Name", customerEmail as Email, customerDOB as "Date of Birth" FROM CustomerAccounts', async (error, ress) => {
         if(error){
@@ -99,7 +101,7 @@ app.post("/customerAccounts/delete", (req, res) => {
     })
 });
 
-// CUSTOMERSALES
+// CUSTOMERSALES in order: READ, CREATE, UPDATE, DELETE
 app.get("/customerSales", (req, res) => {
     db.query('SELECT saleID as "Sale Order #", systemID as "Game System #", customerEmail as "Customer Email", timeIn as "Checked In", timeOut as "Checked Out" FROM CustomerSales', async (error, ress) => {
         db.query('SELECT GameSystems.systemID as "Game System #" FROM GameSystems ORDER BY GameSystems.systemID ASC', async (error, resss) => {
@@ -163,7 +165,7 @@ app.post("/customerSales/delete", (req, res) => {
 });
 
 
-// CONSOLES
+// CONSOLES in order: READ, CREATE, UPDATE, DELETE
 app.get("/consoles", (req, res) => {
     db.query('SELECT consoleID as "Game System #", consoleType as "Game Console Type" FROM Consoles', async (error, ress) => {
         if(error){
@@ -216,7 +218,7 @@ app.post("/consoles/delete", (req, res) => {
     })
 });
 
-// EMPLOYEES
+// EMPLOYEES in order: READ, CREATE, UPDATE, DELETE
 app.get("/employees", (req, res) => {
     db.query('SELECT employeeID as "Employee #", statusIn as "Clocked In", position as "Title", hourlyWage as "Wage ($/hr)" FROM Employees', async (error, ress) => {
         if(error){
@@ -280,7 +282,7 @@ app.post("/employees/delete", (req, res) => {
     })
 });
 
-// GAMESYSTEMS
+// GAMESYSTEMS in order: READ, CREATE, UPDATE, DELETE
 app.get("/gameSystems", (req, res) => {
     db.query('SELECT GameSystems.systemID as "Game System #", GameSystems. loungeID as "Lounge #", GameSystems.inUse as "Rented?", Consoles.consoleType as "Game Console Type" FROM GameSystems INNER JOIN Consoles ON GameSystems.systemType = Consoles.consoleID;', async (error, ress) => {
         db.query('SELECT Consoles.consoleType as "Game Console Type" FROM Consoles ORDER BY Consoles.consoleType ASC;', async (error, resss) => {
@@ -289,6 +291,7 @@ app.get("/gameSystems", (req, res) => {
             console.log(error)
         }
         if( ress.length > 0 ) {
+            // changes bool values to true/false
             for (let i = 0; i < ress.length; i++) {
                 if (ress[i]['Rented?'] == 1) {
                     ress[i]['Rented?'] = 'True'
@@ -355,7 +358,7 @@ app.post("/gamesystems/delete", (req, res) => {
     })
 });
 
-// LOUNGES_EMPLOYEES
+// LOUNGES_EMPLOYEES in order: READ, CREATE, UPDATE, DELETE
 app.get("/Lounges_Employees", (req, res) => {
     db.query('SELECT rentalInvoiceID as "Rental Invoice #", loungeID as "Lounge #", employeeID as "Employee #", dateinfo as "Date" FROM LoungesEmployees', async (error, ress) => {
         db.query('SELECT loungeID as "Lounge #" FROM Lounges ORDER BY Lounges.loungeID ASC', async (error, resss) => { 
@@ -416,7 +419,7 @@ app.post("/Lounges_Employees/delete", (req, res) => {
     })
 });
 
-// LOUNGES
+// LOUNGES in order: READ, CREATE, UPDATE, DELETE
 app.get("/lounges", (req, res) => {
     db.query('SELECT loungeID as "Lounge #" , loungeLimit as "Max Capacity", activeConsoles "Active Players" FROM Lounges', async (error, ress) => {
         if(error){
