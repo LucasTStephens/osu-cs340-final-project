@@ -18,6 +18,7 @@
             <a href="./consoles">Consoles</a>
         </div>
 
+        {{!-- Read Table --}}
         <table>
             <tr>
                 <th>Email</th>
@@ -35,6 +36,7 @@
             {{/each}}
         </table>
 
+        {{!-- Create --}}
         <div>Add customer account</div>
         <form action="/customerAccounts/create" method="POST">
             <label for="email">Email</label>
@@ -53,7 +55,7 @@
             <button type="reset">Cancel</button>
         </form>
         
-
+        {{!-- Update --}}
         <div>Update customer account</div>
         <form action="/customerAccounts/update" method="POST">
             <label for="email">Email</label>
@@ -77,6 +79,7 @@
             <button type="reset">Cancel</button>
         </form>
 
+        {{!-- Delete --}}
         <div>Delete customer account</div>
         <form action="/customerAccounts/delete" method="POST">
             <label for="email">Please select the email of the account you wish to delete: </label>

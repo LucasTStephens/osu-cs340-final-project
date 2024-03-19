@@ -18,6 +18,7 @@
             <a href="./consoles">Consoles</a>
         </div>
 
+        {{!-- Read Table --}}
         <table>
             <tr>
                 <th>Employee ID #</th>
@@ -35,6 +36,7 @@
             {{/each}}
         </table>
 
+        {{!-- Create --}}
         <div>Add employee</div>
         <form action="/employees/create" method="POST">
             <label for="statusin">Clocked In</label>
@@ -53,7 +55,7 @@
             <button type="reset">Cancel</button>
         </form>
         
-
+        {{!-- Update --}}
         <div>Update employee</div>
         <form action="/employees/update" method="POST">
             <label for="employeeID">Employee ID</label>
@@ -81,6 +83,7 @@
             <button type="reset">Cancel</button>
         </form>
 
+        {{!-- Delete --}}
         <div>Delete employee</div>
         <form action="/employees/delete" method="POST">
             <label for="employeeID">Please select the employee ID of the employee you wish to delete: </label>

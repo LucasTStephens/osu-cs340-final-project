@@ -18,6 +18,7 @@
             <a href="./consoles">Consoles</a>
         </div>
 
+        {{!-- Read Table --}}
         <table>
             <tr>
                 <th>Lounge #</th>
@@ -33,6 +34,7 @@
             {{/each}}
         </table>
 
+        {{!-- Create --}}
         <div>Add lounge</div>
         <form action="/lounges/create" method="POST">
             <label for="loungeLimit">Max Capacity</label>
@@ -45,7 +47,7 @@
             <button type="reset">Cancel</button>
         </form>
         
-
+        {{!-- Update --}}
         <div>Update lounge</div>
         <form action="/lounges/update" method="POST">
             <label for="loungeID">Lounge</label>
@@ -66,6 +68,7 @@
             <button type="reset">Cancel</button>
         </form>
 
+        {{!-- Delete --}}
         <div>Delete lounge</div>
         <form action="/Lounges/delete" method="POST">
             <label for="loungeID">Please select the loungeID of the lounge you would like to delete: </label>

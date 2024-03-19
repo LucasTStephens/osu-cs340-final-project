@@ -18,6 +18,7 @@
             <a href="./consoles">Consoles</a>
         </div>
 
+        {{!-- Read Table --}}
         <table>
             <tr>
                 <th>Sale Order #</th>
@@ -37,6 +38,7 @@
             {{/each}}
         </table>
 
+        {{!-- Create --}}
         <div>Add customer sale</div>
         <form action="/customerSales/create" method="POST">
             <label for="systemID">Game System</label>
@@ -65,7 +67,7 @@
             <button type="reset">Cancel</button>
         </form>
         
-
+        {{!-- Update --}}
         <div>Update customer sale</div>
         <form action="/customerSales/update" method="POST">
             <label for="saleID">Sale Order</label>
@@ -102,6 +104,7 @@
             <button type="reset">Cancel</button>
         </form>
 
+        {{!-- Delete --}}
         <div>Delete customer sale</div>
         <form action="/customerSales/delete" method="POST">
             <label for="saleID">Please select the ID # of the sale you wish to delete:</label>

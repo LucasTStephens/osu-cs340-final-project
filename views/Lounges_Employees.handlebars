@@ -18,6 +18,7 @@
             <a href="./consoles">Consoles</a>
         </div>
 
+        {{!-- Read Table --}}
         <table>
             <tr>
                 <th>Rental Invoice #</th>
@@ -35,6 +36,7 @@
             {{/each}}
         </table>
 
+        {{!-- Create --}}
         <div>Add lounge_employee</div>
         <form action="/Lounges_Employees/create" method="POST">
             <label for="loungeID">Lounge</label>
@@ -60,7 +62,7 @@
             <button type="reset">Cancel</button>
         </form>
         
-
+        {{!-- Update --}}
         <div>Update lounge_employee</div>
         <form action="/Lounges_Employees/update" method="POST">
             <label for="rentalInvoiceID">Rental Invoice ID</label>
@@ -94,6 +96,7 @@
             <button type="reset">Cancel</button>
         </form>
 
+        {{!-- Delete --}}
         <div>Delete lounge_employee</div>
         <form action="/Lounges_Employees/delete" method="POST">
             <label for="rentalInvoiceID">Please select the rental invoice ID of the invoice you would like to delete: </label>
