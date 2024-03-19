@@ -37,7 +37,7 @@ CREATE OR REPLACE TABLE CustomerAccounts (
 );
 
 CREATE OR REPLACE TABLE Employees (
-    employeeID int(11) AUTO_INCREMENT,
+    employeeID int(11) NOT NULL AUTO_INCREMENT,
     statusIn boolean NOT NULL DEFAULT 0,
     position varchar(255) NOT NULL,
     hourlyWage decimal(5, 2),
@@ -55,15 +55,15 @@ CREATE OR REPLACE TABLE CustomerSales (
     FOREIGN KEY (customerEmail) REFERENCES CustomerAccounts(customerEmail) ON DELETE CASCADE
 );
 
-/*Intersection Tabele*/
+/*Intersection Table*/
 CREATE OR REPLACE TABLE LoungesEmployees (
     rentalInvoiceID int(11) AUTO_INCREMENT,
     loungeID int(11) NOT NULL,
-    employeeID int(11) NOT NULL,
+    employeeID int(11) NULL,
     dateinfo date NOT NULL,
     PRIMARY KEY (rentalInvoiceID),
     FOREIGN KEY (loungeID) REFERENCES Lounges(loungeID) ON DELETE CASCADE,
-    FOREIGN KEY (employeeID) REFERENCES Employees(employeeID) ON DELETE CASCADE
+    FOREIGN KEY (employeeID) REFERENCES Employees(employeeID) ON DELETE SET NULL
 );
 
 /*Insert dummy variable into tables for database*/

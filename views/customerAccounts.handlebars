@@ -8,7 +8,7 @@
     <body>
         <h1>Customer Accounts</h1>
         <div class="nav">
-            <a href="./index">Index</a>
+            <a href="./index">Home</a>
             <a class="active" href="./customerAccounts">Customer Accounts</a>
             <a href="./customerSales">Customer Sales</a>
             <a href="./employees">Employees</a>
@@ -17,16 +17,13 @@
             <a href="./Lounges_Employees">Lounges_Employees</a>
             <a href="./consoles">Consoles</a>
         </div>
-        
-        <div></div>
 
-        <button>New</button>
         <table>
             <tr>
                 <th>Email</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>DOB (YYYY-MM-DD)</th>
+                <th>Date of Birth</th>
             </tr>
             {{#each tableData}}
             <tr>
@@ -49,8 +46,8 @@
             <label for="last-name">Last Name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">Date of Birth(YYYY-MM-DD)</label>
-            <input name="date-of-birth">
+            <label for="date-of-birth">Date of Birth</label>
+            <input name="date-of-birth" placeholder="YYYY-MM-DD">
 
             <button type="submit">Add</button>
             <button type="reset">Cancel</button>
@@ -73,8 +70,8 @@
             <label for="last-name">Last Name</label>
             <input name="last-name">
 
-            <label for="date-of-birth">Date of Birth(YYYY-MM-DD)</label>
-            <input name="date-of-birth">
+            <label for="date-of-birth">Date of Birth</label>
+            <input name="date-of-birth" placeholder="YYYY-MM-DD">
 
             <button type="submit">Update</button>
             <button type="reset">Cancel</button>

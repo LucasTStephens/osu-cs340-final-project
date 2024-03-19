@@ -8,7 +8,7 @@
     <body>
         <h1>Game Systems</h1>
         <div class="nav">
-            <a href="./index">Index</a>
+            <a href="./index">Home</a>
             <a href="./customerAccounts">Customer Accounts</a>
             <a href="./customerSales">Customer Sales</a>
             <a href="./employees">Employees</a>
@@ -18,9 +18,6 @@
             <a href="./consoles">Consoles</a>
         </div>
 
-
-        <div></div>
-        <button>New</button>
         <table>
             <tr>
                 <th>Game System #</th>
@@ -49,7 +46,10 @@
             </select>
 
             <label for="inUse">Rented?</label>
-            <input name="inUse">
+            <select name="inUse" id="select-inUse">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
             <label for="systemType">Game Console Type</label>
             <select name="systemType" id="select-systemType">
@@ -83,7 +83,10 @@
             </select>
 
             <label for="inUse">Rented?</label>
-            <input name="inUse">
+            <select name="inUse" id="select-inUse">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
             <label for="systemType">Game Console Type</label>
             <select name="systemType" id="select-systemType">
