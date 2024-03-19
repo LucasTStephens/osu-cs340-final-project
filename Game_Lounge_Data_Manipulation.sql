@@ -1,3 +1,10 @@
+/* 
+Citation for the following fuction: Data Manipulation Query using our entity tables for our Project
+Date: 2/15/24
+Adapted from: BSG database,
+Source URL: https://canvas.oregonstate.edu/courses/1946034/pages/exploration-database-application-design?module_item_id=23809325
+*/
+
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
